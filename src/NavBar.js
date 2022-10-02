@@ -13,7 +13,7 @@ export default function NavBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Let's Do Something
           </Typography>
-          <Button variant="contained" color="secondary">Explore</Button>
+          <Button variant="contained" href="/" color="secondary">Explore</Button>
         </Toolbar>
       </AppBar>
     </Box>

@@ -6,39 +6,26 @@ import SearchControls from "./SearchControls";
 import EventCard from "./EventCard";
 
 export default function EventCardsSection(props) {
-  const [cards, setCards] = useState([
-    {
-      title: "Title",
-      date: "October 12, 2022",
-      location: "1234 Road Oakland, CA",
-      imageUrl: "https://picsum.photos/id/101/300/200",
-    },
-    {
-      title: "Card two",
-      date: "September 7, 2022",
-      location: "10 Main Street, Oakland, CA",
-      imageUrl: "https://picsum.photos/id/10/300/200",
-    },
-    {
-      title: "Card four",
-      date: "September 8, 2022",
-      location: "3 West Street, Oakland, CA",
-      imageUrl: "https://picsum.photos/id/34/300/200",
-    },
-    {
-      title: "Card three",
-      date: "September 9, 2022",
-      location: "88 North Street, Oakland, CA",
-      imageUrl: "https://picsum.photos/id/59/300/200",
+
+  const locateLargestImage = (images) => {
+    let maxWidth = 0;
+    let largestWidthImageIndex = 0;
+    for (let i = 0; i < images.length; ++i) {
+      const image = images[i];
+      if (image.width > maxWidth) {
+        maxWidth = image.width;
+        largestWidthImageIndex = i;
+      }
     }
-  ]);
+    return images[largestWidthImageIndex].url;
+  };
 
   const renderEventCards = () => {
     let result = [];
-    for (const card of cards) {
+    for (const event of props.events) {
       result.push(
-        <Grid item container xs={12} md={3} sx={{ p: 1 }}>
-          <EventCard title={card.title} date={card.date} location={card.location} imageUrl={card.imageUrl}/>
+        <Grid item key={event.id} container xs={12} md={3} sx={{ p: 1 }}>
+          <EventCard id={event.id} title={event.name} date={event.dates.start.localDate} location={`${event._embedded.venues[0].city.name}, ${event._embedded.venues[0].state.stateCode}`} imageUrl={locateLargestImage(event.images)}/>
         </Grid>
       );
     }

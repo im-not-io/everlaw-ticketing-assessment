@@ -12,6 +12,6 @@ import PlaceIcon from '@mui/icons-material/Place';
 
 export default function ClickableLocation(props) {
   return (
-    <Button startIcon={<PlaceIcon />} target="_blank" href={`https://www.google.com/maps/search/${encodeURIComponent(props.location)}/`}>{props.location}</Button>
+    <Button startIcon={<PlaceIcon />}>{props.location}</Button>
   );
 }

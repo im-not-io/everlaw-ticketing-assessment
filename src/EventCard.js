@@ -6,25 +6,28 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-import ClickableLocation from "./ClickableLocation";
+import PlaceIcon from "@mui/icons-material/Place";
+import { Link } from "react-router-dom";
+import { Stack } from "@mui/system";
 
-export default function EventCardsSection(props) {
+export default function EventCard(props) {
   return (
     <Card sx={{ width: "100%" }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="200"
-          image={props.imageUrl}
-        />
+      <CardActionArea href={`/events/${props.id}`} sx={{ height: "100%" }}>
+        <CardMedia component="img" height="200" image={props.imageUrl} />
         <CardContent>
           <Typography variant="h5" component="div">
             {props.title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {props.date}
+          <Typography variant="button" color="text.secondary">
+            {new Date(props.date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric"})}
           </Typography>
-          <ClickableLocation location={props.location}/>
+          <Typography variant="button" color="text.secondary">
+            <Stack direction="row">
+              <PlaceIcon />
+              {props.location}
+            </Stack>
+          </Typography>
         </CardContent>
       </CardActionArea>
     </Card>
