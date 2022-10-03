@@ -9,7 +9,7 @@ export default function EventCardsSection(props) {
     for (const event of props.events) {
       result.push(
         <Grid item key={event.id} container xs={12} md={3} sx={{ p: 1 }}>
-          <EventCard id={event.id} title={event.name} date={event.dates.start.localDate} location={`${event._embedded.venues[0].city.name}, ${event._embedded.venues[0].state.stateCode}`} imageUrl={locateLargestImage(event.images)}/>
+          <EventCard id={event.id} title={event.name} date={event.dates.start.localDate} time={event.dates.start.localTime} location={`${event._embedded.venues[0].city.name}, ${event._embedded.venues[0].state.stateCode}`} imageUrl={locateLargestImage(event.images)}/>
         </Grid>
       );
     }

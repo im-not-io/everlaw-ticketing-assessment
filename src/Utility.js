@@ -37,7 +37,30 @@ export const locateLargestImage = (images) => {
   return images[largestWidthImageIndex].url;
 };
 
-export const prettyFormatDate = (dateString) => {
-  const [year, month, day] = dateString.split("-");
-  return new Date(year, month - 1, day).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric"});
+const convertTimeToAmPm = (hours, minutes) => {
+  let amOrPm;
+  if (hours > 12) {
+    amOrPm = "pm";
+  } else {
+    amOrPm = "am";
+  }
+  return `, ${parseInt(hours) % 12}:${minutes}${amOrPm}`;
+}
+
+export const prettyFormatDate = (localDate, localTime) => {
+  const [year, month, day] = localDate.split("-");
+  let hours;
+  let minutes;
+  if (localTime) {
+    let ltSplit = localTime.split(":");
+    hours = ltSplit[0];
+    minutes = ltSplit[1];
+  }
+  const date = new Date(year, month - 1, day, );
+  return date.toLocaleDateString('en-us', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }) + (localTime ? convertTimeToAmPm(hours, minutes) : "") 
 };

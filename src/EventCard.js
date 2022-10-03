@@ -18,7 +18,7 @@ export default function EventCard(props) {
             {props.title}
           </Typography>
           <Typography variant="button" color="text.secondary">
-            {prettyFormatDate(props.date)}
+            {prettyFormatDate(props.date, props.time)}
           </Typography>
           <Typography variant="button" color="text.secondary">
             <Stack direction="row">

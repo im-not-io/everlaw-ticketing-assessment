@@ -37,7 +37,7 @@ export default function EventPage(props) {
               {event.name}
             </Typography>
             <Typography variant="h6" component="div">
-              {prettyFormatDate(event.dates.start.localDate)}
+              {prettyFormatDate(event.dates.start.localDate, event.dates.start.localTime)}
             </Typography>
             <ClickableLocation variant="button" venue={event._embedded.venues[0]} />
             <Button
