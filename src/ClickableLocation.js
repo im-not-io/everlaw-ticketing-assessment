@@ -1,17 +1,28 @@
+import PlaceIcon from "@mui/icons-material/Place";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
 import * as React from "react";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
-import Link from '@mui/material/Link';
-import PlaceIcon from '@mui/icons-material/Place';
 
+const buildAddress = (line1, city, state) => {
+  return encodeURIComponent(`${line1}, ${city}, ${state}`);
+};
 
 export default function ClickableLocation(props) {
+  const placeLocation = `${props.venue.name} - ${props.venue.city.name}, ${props.venue.state.stateCode}`;
   return (
-    <Button startIcon={<PlaceIcon />}>{props.location}</Button>
+    <Link
+      variant={props.variant}
+      style={{textDecoration: "none"}}
+      href={`https://www.google.com/maps/search/${buildAddress(
+        props.venue.address.line1,
+        props.venue.city.name,
+        props.venue.state.stateCode
+      )}`}
+    >
+      <Stack direction="row" alignItems="center">
+        <PlaceIcon />
+        {placeLocation}
+      </Stack>
+    </Link>
   );
 }

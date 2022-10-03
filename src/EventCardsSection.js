@@ -1,25 +1,9 @@
-import { React, useState } from "react";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
-import SearchControls from "./SearchControls";
+import { React } from "react";
 import EventCard from "./EventCard";
+import { locateLargestImage } from "./Utility";
 
 export default function EventCardsSection(props) {
-
-  const locateLargestImage = (images) => {
-    let maxWidth = 0;
-    let largestWidthImageIndex = 0;
-    for (let i = 0; i < images.length; ++i) {
-      const image = images[i];
-      if (image.width > maxWidth) {
-        maxWidth = image.width;
-        largestWidthImageIndex = i;
-      }
-    }
-    return images[largestWidthImageIndex].url;
-  };
-
   const renderEventCards = () => {
     let result = [];
     for (const event of props.events) {

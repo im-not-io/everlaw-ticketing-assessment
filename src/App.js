@@ -1,8 +1,8 @@
-import { Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
-import Page from "./Page";
-import ExplorePage from "./ExplorePage";
+import { Route, Routes } from "react-router-dom";
 import EventPage from "./EventPage";
+import ExplorePage from "./ExplorePage";
+import Page from "./Page";
 import { theme } from "./Theme";
 
 function App() {
