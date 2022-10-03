@@ -3,6 +3,8 @@ import { React } from "react";
 import EventCard from "./EventCard";
 import { locateLargestImage } from "./Utility";
 
+//EventCardsSection helps render a list of event cards/boxes.
+//This component could be modified in the future to include pagniation.
 export default function EventCardsSection(props) {
   const renderEventCards = () => {
     let result = [];

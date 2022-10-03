@@ -8,7 +8,7 @@ import { theme } from "./Theme";
 function App() {
   return (
     //This wraps the app in a ThemeProvider to allow us to override
-    //the theme styles in Material UI.
+    //the theme styles in Material UI and set up React Router routes.
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path="/" element={<Page component={<ExplorePage />} />} />

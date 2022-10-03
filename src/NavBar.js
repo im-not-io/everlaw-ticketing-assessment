@@ -5,6 +5,7 @@ import Link from "@mui/material/Link";
 import Toolbar from '@mui/material/Toolbar';
 import * as React from 'react';
 
+//Renders the navigation bar
 export default function NavBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -13,7 +14,6 @@ export default function NavBar() {
           <Link href="/" color="secondary" variant="h6" sx={{ flexGrow: 1, textDecoration: "none" }}>
             Let's Do Something
           </Link>
-
           <Button variant="contained" href="/" color="secondary">Explore</Button>
         </Toolbar>
       </AppBar>

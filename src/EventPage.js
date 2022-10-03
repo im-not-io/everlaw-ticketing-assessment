@@ -7,22 +7,24 @@ import { useParams } from "react-router-dom";
 import ClickableLocation from "./ClickableLocation";
 import { getApiData, locateLargestImage, prettyFormatDate } from "./Utility";
 
+//EventPage is responsible for fetching data from the
+//TicketMaster API and rendering a single evne on the page.
 export default function EventPage(props) {
   const [event, setEvent] = useState();
   const params = useParams();
   useEffect(() => {
+    //useEffect hook is only called once when the eventId changes
+    //to load data from the API and populate it into the state
     getApiData({ id: params.eventId }).then((result) => {
       setEvent(result[0]);
     });
   }, [params.eventId]);
-  useEffect(() => {
-    console.log("event");
-    console.log(event);
-  });
   return (
     <Grid item container xs={12} spacing={4} padding={4}>
       <Grid item container xs={12} md={6}>
         {event ? (
+          //locateLargestImage is a helper function to prevent
+          //showing the user a blurry image
           <img
             src={locateLargestImage(event.images)}
             style={{ maxWidth: "100%", objectFit: "cover" }}

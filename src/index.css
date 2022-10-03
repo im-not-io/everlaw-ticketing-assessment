@@ -1,3 +1,8 @@
-body, html {
-    margin: 0;
+/*
+Most of the styling is controlled via Material UI.
+This bit is just to remove the body and html padding
+*/
+body,
+html {
+  margin: 0;
 }

@@ -8,6 +8,7 @@ import { Stack } from "@mui/system";
 import { React } from "react";
 import { prettyFormatDate } from "./Utility";
 
+//EventCard renders a box with summary data from the event
 export default function EventCard(props) {
   return (
     <Card sx={{ width: "100%" }}>

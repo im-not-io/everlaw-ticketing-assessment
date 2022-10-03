@@ -1,5 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
+//Theme settings for colors and font sizes for Material UI
 export const theme = createTheme({
     palette: {
       primary: {
